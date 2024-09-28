@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application avec sections dynamiques</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .section {
+            height: 100vh;
+            padding: 20px;
+            box-sizing: border-box;
+            display: none; /* Les sections sont masquées par défaut */
+        }
+
+        /* Styles pour afficher les sections */
+        .visible {
+            display: block;
+        }
+
+        /* Couleurs de fond différentes pour visualiser les sections */
+        #section1 { background-color: #f9f9f9; }
+        #section2 { background-color: #e9e9e9; }
+        #section3 { background-color: #d9d9d9; }
+
+        /* Style pour l'impression */
+        @media print {
+            .section {
+                display: block; /* Afficher toutes les sections pour l'impression */
+                page-break-before: always; /* Séparation des sections en pages distinctes à l'impression */
+            }
+
+            /* Masquer les sections non sélectionnées */
+            .hidden-print {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Boutons de contrôle -->
+    <div style="position: fixed; top: 10px; left: 10px; z-index: 100;">
+        <button onclick="toggleSection('section1')">Afficher/Masquer Section 1</button>
+        <button onclick="toggleSection('section2')">Afficher/Masquer Section 2</button>
+        <button onclick="toggleSection('section3')">Afficher/Masquer Section 3</button>
+    </div>
+
+    <!-- Section 1 -->
+    <div id="section1" class="section visible">
+        <h1>Étape 1 : Choisissez une image</h1>
+        <div class="image-options">
+            <img src="image1.jpg" alt="Image 1" style="width: 100px;">
+            <img src="image2.jpg" alt="Image 2" style="width: 100px;">
+        </div>
+    </div>
+
+    <!-- Section 2 -->
+    <div id="section2" class="section visible">
+        <h1>Étape 2 : Choisissez un texte</h1>
+        <div class="text-options">
+            <p>Texte 1 : Lorem ipsum dolor sit amet.</p>
+            <p>Texte 2 : Consectetur adipiscing elit.</p>
+        </div>
+    </div>
+
+    <!-- Section 3 -->
+    <div id="section3" class="section visible">
+        <h1>Résumé de vos choix</h1>
+        <p>Image sélectionnée : Image 1</p>
+        <p>Texte sélectionné : Texte 1</p>
+    </div>
+
+    <script>
+        // Fonction pour afficher ou masquer une section
+        function toggleSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            if (section.classList.contains('visible')) {
+                section.classList.remove('visible');
+                section.classList.add('hidden-print');
+            } else {
+                section.classList.add('visible');
+                section.classList.remove('hidden-print');
+            }
+        }
+    </script>
+
+</body>
+</html>
