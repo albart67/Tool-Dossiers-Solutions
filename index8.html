@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application Multi-pages</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        section {
+            height: 100vh;
+            padding: 20px;
+            text-align: center;
+        }
+        #menu-images, #menu-textes {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Section pour les images avec un menu déroulant -->
+    <section id="images">
+        <h1>Choisissez une image</h1>
+        <select id="menu-images" onchange="changerImage()">
+            <option value="">Sélectionnez une image</option>
+            <option value="schema1.png">Image 1</option>
+            <option value="schema2.png">Image 2</option>
+            <option value="image3.jpg">Image 3</option>
+        </select>
+        <br>
+        <img id="affichage-image" src="" alt="Votre image" style="margin-top: 20px; max-width: 100%;">
+    </section>
+
+    <!-- Section pour le choix de texte et redirection -->
+    <section id="textes">
+        <h1>Choisissez un texte</h1>
+        <select id="menu-textes" onchange="redirection()">
+            <option value="">Sélectionnez un texte</option>
+            <option value="page1.html">Texte 1</option>
+            <option value="page2.html">Texte 2</option>
+            <option value="page3.html">Texte 3</option>
+        </select>
+    </section>
+
+    <script>
+        // Fonction pour changer l'image affichée
+        function changerImage() {
+            const menuImages = document.getElementById('menu-images');
+            const affichageImage = document.getElementById('affichage-image');
+            const selectedImage = menuImages.value;
+            affichageImage.src = selectedImage ? selectedImage : "";
+        }
+
+        // Fonction pour rediriger vers une autre page
+        function redirection() {
+            const menuTextes = document.getElementById('menu-textes');
+            const selectedPage = menuTextes.value;
+            if (selectedPage) {
+                window.location.href = selectedPage;
+            }
+        }
+    </script>
+
+</body>
+</html>

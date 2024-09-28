@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application de rapports</title>
+    <style>
+        .page { display: none; }
+        .active { display: block; }
+    </style>
+</head>
+<body>
+
+    <!-- Étape 1 -->
+    <div id="page1" class="page active">
+        <h1>Étape 1 : Choisissez une image</h1>
+        <div class="image-options">
+            <img src="image1.jpg" alt="Image 1" id="img1" onclick="selectImage('Image 1')">
+            <img src="image2.jpg" alt="Image 2" id="img2" onclick="selectImage('Image 2')">
+        </div>
+        <button onclick="goToPage('page2')">Suivant</button>
+    </div>
+
+    <!-- Étape 2 -->
+    <div id="page2" class="page">
+        <h1>Étape 2 : Choisissez un texte</h1>
+        <div class="text-options">
+            <p onclick="selectText('Texte 1')">Texte 1</p>
+            <p onclick="selectText('Texte 2')">Texte 2</p>
+        </div>
+        <button onclick="goToPage('resume')">Voir le résumé</button>
+    </div>
+
+    <!-- Résumé -->
+    <div id="resume" class="page">
+        <h1>Résumé de vos choix</h1>
+        <p id="selected-image"></p>
+        <p id="selected-text"></p>
+    </div>
+
+    <script>
+        let selectedImage = '';
+        let selectedText = '';
+
+        function selectImage(image) {
+            selectedImage = image;
+        }
+
+        function selectText(text) {
+            selectedText = text;
+        }
+
+        function goToPage(pageId) {
+            document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
+            document.getElementById(pageId).classList.add('active');
+
+            if (pageId === 'resume') {
+                document.getElementById('selected-image').innerText = `Image sélectionnée : ${selectedImage}`;
+                document.getElementById('selected-text').innerText = `Texte sélectionné : ${selectedText}`;
+            }
+        }
+    </script>
+
+</body>
+</html>

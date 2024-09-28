@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application de rapports</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .section {
+            height: 100vh; /* Chaque section occupe toute la hauteur de la fenêtre */
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        /* Couleurs de fond différentes pour visualiser les sections */
+        #section1 { background-color: #f9f9f9; }
+        #section2 { background-color: #e9e9e9; }
+        #section3 { background-color: #d9d9d9; }
+
+        /* Style pour l'impression */
+        @media print {
+            body {
+                margin: 0;
+                padding: 0;
+            }
+
+            .section {
+                height: auto;
+                page-break-before: always; /* Séparation des sections en pages distinctes à l'impression */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Section 1 -->
+    <div id="section1" class="section">
+        <h1>Étape 1 : Choisissez une image</h1>
+        <div class="image-options">
+            <img src="image1.jpg" alt="Image 1" style="width: 100px;">
+            <img src="image2.jpg" alt="Image 2" style="width: 100px;">
+        </div>
+    </div>
+
+    <!-- Section 2 -->
+    <div id="section2" class="section">
+        <h1>Étape 2 : Choisissez un texte</h1>
+        <div class="text-options">
+            <p>Texte 1 : Lorem ipsum dolor sit amet.</p>
+            <p>Texte 2 : Consectetur adipiscing elit.</p>
+        </div>
+    </div>
+
+    <!-- Section 3 -->
+    <div id="section3" class="section">
+        <h1>Résumé de vos choix</h1>
+        <p>Image sélectionnée : Image 1</p>
+        <p>Texte sélectionné : Texte 1</p>
+    </div>
+
+</body>
+</html>

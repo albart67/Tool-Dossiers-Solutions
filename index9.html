@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Commerciaux et Contacts</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        /* Style pour aligner les éléments à gauche et retirer la bordure du menu déroulant */
+        select {
+            padding: 10px;
+            font-size: 16px;
+            border: none;
+            border-bottom: 2px solid #ccc;
+            outline: none;
+            width: 100%;
+            max-width: 300px;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        #info-commercial {
+            font-size: 18px;
+            font-weight: bold;
+            text-align: left;
+            max-width: 300px;
+        }
+        .label {
+            font-weight: normal;
+            color: #555;
+        }
+        /* Ajout d'espacement entre les lignes */
+        .info-ligne {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Choisissez un commercial</h1>
+
+    <!-- Menu déroulant pour sélectionner un commercial -->
+    <select id="menu-commerciaux" onchange="afficherInfoCommercial()">
+        <option value="">Sélectionnez un commercial</option>
+        <option value="john">John Doe</option>
+        <option value="jane">Jane Smith</option>
+        <option value="paul">Paul Dupont</option>
+        <option value="anne">Anne Durand</option>
+    </select>
+
+    <!-- Section pour afficher les informations du commercial -->
+    <div id="info-commercial">
+        <!-- Les informations s'afficheront ici -->
+    </div>
+
+    <script>
+        // Fonction pour afficher les informations du commercial sélectionné
+        function afficherInfoCommercial() {
+            const menu = document.getElementById('menu-commerciaux');
+            const infoDiv = document.getElementById('info-commercial');
+
+            // Récupérer la valeur sélectionnée
+            const commercial = menu.value;
+
+            // Stocker les informations des commerciaux
+            const commerciaux = {
+                "john": { "nom": "John Doe", "telephone": "06 12 34 56 78", "email": "john.doe@example.com" },
+                "jane": { "nom": "Jane Smith", "telephone": "06 98 76 54 32", "email": "jane.smith@example.com" },
+                "paul": { "nom": "Paul Dupont", "telephone": "06 22 33 44 55", "email": "paul.dupont@example.com" },
+                "anne": { "nom": "Anne Durand", "telephone": "06 44 55 66 77", "email": "anne.durand@example.com" }
+            };
+
+            // Si un commercial est sélectionné, afficher son numéro de téléphone et son email
+            if (commercial && commerciaux[commercial]) {
+                const telephone = commerciaux[commercial].telephone;
+                const email = commerciaux[commercial].email;
+
+                // Affichage des informations avec espace entre les lignes
+                infoDiv.innerHTML = `
+                    <div class="info-ligne"><span class="label">Téléphone:</span> ${telephone}</div>
+                    <div class="info-ligne"><span class="label">Email:</span> ${email}</div>
+                `;
+            } else {
+                // Sinon, effacer les informations affichées
+                infoDiv.innerHTML = "";
+            }
+        }
+    </script>
+
+</body>
+</html>
+
+

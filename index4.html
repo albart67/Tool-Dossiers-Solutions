@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Éditeur de rapports</title>
+    <style>
+        .container { margin: 20px; }
+        .image-options img { width: 100px; margin: 10px; cursor: pointer; }
+        .text-options { margin: 10px; }
+        .text-options p { cursor: pointer; }
+        .selected { border: 2px solid blue; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Choisissez vos éléments</h1>
+        <h2>Images :</h2>
+        <div class="image-options">
+            <img src="schema1.png" alt="Image 1" id="img1">
+            <img src="schema2.png" alt="Image 2" id="img2">
+            <img src="image3.jpg" alt="Image 3" id="img3">
+        </div>
+        
+        <h2>Textes :</h2>
+        <div class="text-options">
+            <p id="text1">Option 1: Texte introductif sur le projet A</p>
+            <p id="text2">Option 2: Texte descriptif sur le projet B</p>
+            <p id="text3">Option 3: Texte conclusif sur le projet C</p>
+        </div>
+        
+        <button onclick="generateReport()">Générer le rapport</button>
+
+        <h2>Résumé sélectionné :</h2>
+        <div id="selected-summary"></div>
+    </div>
+
+    <script>
+        let selectedImage = '';
+        let selectedText = '';
+
+        document.querySelectorAll('.image-options img').forEach(image => {
+            image.addEventListener('click', function() {
+                document.querySelectorAll('.image-options img').forEach(img => img.classList.remove('selected'));
+                this.classList.add('selected');
+                selectedImage = this.alt;
+            });
+        });
+
+        document.querySelectorAll('.text-options p').forEach(text => {
+            text.addEventListener('click', function() {
+                document.querySelectorAll('.text-options p').forEach(p => p.classList.remove('selected'));
+                this.classList.add('selected');
+                selectedText = this.innerText;
+            });
+        });
+
+        function generateReport() {
+            const summary = document.getElementById('selected-summary');
+            summary.innerHTML = `<p><strong>Image sélectionnée :</strong> ${selectedImage}</p>
+                                 <p><strong>Texte sélectionné :</strong> ${selectedText}</p>`;
+        }
+    </script>
+</body>
+</html>

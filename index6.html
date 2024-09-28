@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sélection des Pages par Thème</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .page {
+            margin-top: 20px;
+            padding: 20px;
+            border: 1px solid #ccc;
+        }
+
+        .theme-selection {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Sélectionnez les thèmes à afficher</h1>
+
+    <div class="theme-selection">
+        <label>
+            <input type="checkbox" id="ix" name="theme" value="ix">
+            Thème IX
+        </label><br>
+        
+        <label>
+            <input type="checkbox" id="ix-m" name="theme" value="ix-m">
+            Thème IX-M
+        </label><br>
+        
+        <label>
+            <input type="checkbox" id="c230" name="theme" value="c230">
+            Thème C230
+        </label><br>
+
+        <button onclick="afficherPages()">Afficher les pages sélectionnées</button>
+    </div>
+
+    <!-- Contenu des pages pour chaque thème -->
+    <div id="pages-container">
+        <!-- Pages du Thème IX -->
+        <div id="theme-ix" class="page hidden">
+            <h2>Pages Thème IX</h2>
+            <p>Contenu de la page 1 du Thème IX.</p>
+            <p>Contenu de la page 2 du Thème IX.</p>
+            <p>Contenu de la page 3 du Thème IX.</p>
+            <p>Contenu de la page 4 du Thème IX.</p>
+            <p>Contenu de la page 5 du Thème IX.</p>
+        </div>
+
+        <!-- Pages du Thème IX-M -->
+        <div id="theme-ix-m" class="page hidden">
+            <h2>Pages Thème IX-M</h2>
+            <p>Contenu de la page 1 du Thème IX-M.</p>
+            <p>Contenu de la page 2 du Thème IX-M.</p>
+            <p>Contenu de la page 3 du Thème IX-M.</p>
+            <p>Contenu de la page 4 du Thème IX-M.</p>
+            <p>Contenu de la page 5 du Thème IX-M.</p>
+        </div>
+
+        <!-- Pages du Thème C230 -->
+        <div id="theme-c230" class="page hidden">
+            <h2>Pages Thème C230</h2>
+            <p>Contenu de la page 1 du Thème C230.</p>
+            <p>Contenu de la page 2 du Thème C230.</p>
+            <p>Contenu de la page 3 du Thème C230.</p>
+            <p>Contenu de la page 4 du Thème C230.</p>
+            <p>Contenu de la page 5 du Thème C230.</p>
+        </div>
+    </div>
+
+    <script>
+        // Fonction pour afficher les pages en fonction des thèmes sélectionnés
+        function afficherPages() {
+            // Masquer toutes les pages au départ
+            document.getElementById('theme-ix').classList.add('hidden');
+            document.getElementById('theme-ix-m').classList.add('hidden');
+            document.getElementById('theme-c230').classList.add('hidden');
+            
+            // Vérifier quels thèmes sont sélectionnés et afficher les pages correspondantes
+            if (document.getElementById('ix').checked) {
+                document.getElementById('theme-ix').classList.remove('hidden');
+            }
+            if (document.getElementById('ix-m').checked) {
+                document.getElementById('theme-ix-m').classList.remove('hidden');
+            }
+            if (document.getElementById('c230').checked) {
+                document.getElementById('theme-c230').classList.remove('hidden');
+            }
+        }
+    </script>
+
+</body>
+</html>

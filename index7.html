@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon application avec PDF.js</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.9.359/pdf.min.js"></script>
+    <style>
+        .pdf-page {
+            margin-bottom: 20px;
+            border: 1px solid black;
+        }
+        #pdf-container {
+            margin-top: 50px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Bienvenue dans mon application</h1>
+
+    <p>Voici l'introduction de mon application. Ci-dessous, vous trouverez le PDF affiché à la fin.</p>
+
+    <!-- Ici se trouve le reste de ton application -->
+
+    <!-- Conteneur pour afficher les pages PDF à la fin -->
+    <div id="pdf-container"></div>
+
+    <script>
+        var url = 'test1.pdf';  // Chemin vers le fichier PDF
+
+        // Charger le PDF
+        pdfjsLib.getDocument(url).promise.then(function(pdfDoc) {
+            // Parcourir toutes les pages
+            for (var pageNum = 1; pageNum <= pdfDoc.numPages; pageNum++) {
+                renderPage(pdfDoc, pageNum);
+            }
+        });
+
+        // Fonction pour rendre une page
+        function renderPage(pdfDoc, pageNum) {
+            pdfDoc.getPage(pageNum).then(function(page) {
+                var scale = 1.5;  // Échelle pour ajuster la taille
+                var viewport = page.getViewport({ scale: scale });
+
+                // Créer un élément canvas pour chaque page
+                var canvas = document.createElement('canvas');
+                canvas.className = 'pdf-page';
+                var context = canvas.getContext('2d');
+                canvas.height = viewport.height;
+                canvas.width = viewport.width;
+
+                // Rendre la page PDF dans le canvas
+                var renderContext = {
+                    canvasContext: context,
+                    viewport: viewport
+                };
+                page.render(renderContext);
+
+                // Ajouter le canvas dans le conteneur "pdf-container"
+                document.getElementById('pdf-container').appendChild(canvas);
+            });
+        }
+    </script>
+</body>
+</html>
