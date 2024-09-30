@@ -1,5 +1,6 @@
 
 
+//Affichage synoptique de fonctionnement
 document.getElementById('selection1').addEventListener('change', function() {
     // Masquer toutes les pages
     document.querySelectorAll('.page1').forEach(function(div) {
@@ -17,7 +18,7 @@ document.getElementById('selection1').addEventListener('change', function() {
 
 
 
-// Fonction pour basculer l'affichage des groupes de pages
+// Fonction pour basculer l'affichage des groupes de pages avec les boutons du menu 
 function togglePages(groupId) {
     const pageGroup = document.getElementById(groupId);
     const button = document.querySelector(`button[onclick="togglePages('${groupId}')"]`);
@@ -32,7 +33,8 @@ function togglePages(groupId) {
     }
 }
 
-// Fonction pour afficher le nombre de pages "Solutions" sélectionnées
+
+// Fonction pour afficher le nombre de pages "Schéma" sélectionnées
 function displaySolutions() {
     const solutionCount = document.getElementById("solutions-count").value;
 
@@ -48,6 +50,7 @@ function displaySolutions() {
 }
 
 
+//Fonction pour afficher les schémas 
 function displayImage(selectorId, displayId) {
     const selector = document.getElementById(selectorId);
     const displayDiv = document.getElementById(displayId);
@@ -62,19 +65,6 @@ function displayImage(selectorId, displayId) {
     }
 }
 
-function displayImage2(selectorId, displayId) {
-    const selector = document.getElementById(selectorId);
-    const displayDiv = document.getElementById(displayId);
-    const selectedValue = selector.value;
-
-    if (selectedValue) {
-        // Si une image est sélectionnée, créer un élément <img>
-        displayDiv.innerHTML = `<img src="${selectedValue}" alt="Image sélectionnée">`;
-    } else {
-        // Si aucune image n'est sélectionnée
-        displayDiv.innerHTML = "<p>Aucune image sélectionnée pour l'instant.</p>";
-    }
-}
 
 
 //  Flatpickr JS pour gestion de la date à vérifier
@@ -97,45 +87,40 @@ function displayImage2(selectorId, displayId) {
             }
         }
 
-        function afficherInfoCommercial() {
-            const menu = document.getElementById('menu-commerciaux');
-            const infoDiv = document.getElementById('info-commercial');
 
-            // Récupérer la valeur sélectionnée
-            const commercial = menu.value;
+//Fonction pour afficher les donnés des commerciaux
 
-            // Stocker les informations des commerciaux
-            const commerciaux = {
-                "john": { "nom": "John Doe", "telephone": "06 12 34 56 78", "email": "john.doe@example.com" },
-                "jane": { "nom": "Jane Smith", "telephone": "06 98 76 54 32", "email": "jane.smith@example.com" },
-                "paul": { "nom": "Paul Dupont", "telephone": "06 22 33 44 55", "email": "paul.dupont@example.com" },
-                "anne": { "nom": "Anne Durand", "telephone": "06 44 55 66 77", "email": "anne.durand@example.com" }
-            };
+function afficherInfoCommercial() {
+    const menu = document.getElementById('menu-commerciaux');
+    const infoDiv = document.getElementById('info-commercial');
 
-            // Si un commercial est sélectionné, afficher son numéro de téléphone et son email
-            if (commercial && commerciaux[commercial]) {
-                const telephone = commerciaux[commercial].telephone;
-                const email = commerciaux[commercial].email;
+    // Récupérer la valeur sélectionnée
+    const commercial = menu.value;
 
-                // Affichage des informations avec espace entre les lignes
+    // Stocker les informations des commerciaux
+    const commerciaux = {
+        "john": { "nom": "John Doe", "telephone": "06 12 34 56 78", "email": "john.doe@example.com" },
+        "jane": { "nom": "Jane Smith", "telephone": "06 98 76 54 32", "email": "jane.smith@example.com" },
+        "paul": { "nom": "Paul Dupont", "telephone": "06 22 33 44 55", "email": "paul.dupont@example.com" },
+        "anne": { "nom": "Anne Durand", "telephone": "06 44 55 66 77", "email": "anne.durand@example.com" }
+    };
 
-                // infoDiv.innerHTML = `
-                //     <p class="info-ligne"><span class="label">Téléphone:</span> ${telephone}</p>
-                //     <p class="info-ligne"><span class="label">Email:</span> <a href="mailto:${email}">${email}</a></p>
-                // `;
-                infoDiv.innerHTML = `
-                    <p class="info-ligne"><span class="label">Téléphone:</span> <span>${telephone}</span></p>
-                    <p class="info-ligne"><span class="label">Email:</span> <span> <a href="mailto:${email}">${email}</a></span></p>
-                `;
-                
-                // infoDiv.innerHTML = `
-                //     <div class="info-ligne"><span class="label">Téléphone:</span> ${telephone}</div>
-                //     <div class="info-ligne"><span class="label">Email:</span> ${email}</div>
-                // `;
-            } else {
-                // Sinon, effacer les informations affichées
-                infoDiv.innerHTML = "";
-            }
-        }
+    // Si un commercial est sélectionné, afficher son numéro de téléphone et son email
+    if (commercial && commerciaux[commercial]) {
+        const telephone = commerciaux[commercial].telephone;
+        const email = commerciaux[commercial].email;
+
+        // Affichage des informations avec espace entre les lignes
+     
+        infoDiv.innerHTML = `
+            <p class="info-ligne"><span class="label">Téléphone:</span> <span>${telephone}</span></p>
+            <p class="info-ligne"><span class="label">Email:</span> <span> <a href="mailto:${email}">${email}</a></span></p>
+        `;
+             
+    } else {
+        // Sinon, effacer les informations affichées
+        infoDiv.innerHTML = "";
+    }
+}
 
 

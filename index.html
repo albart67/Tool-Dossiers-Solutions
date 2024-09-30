@@ -26,7 +26,7 @@
             <br>
             <br>
 
-            <h3>Documents à afficher dand le dossier</h3>
+            <h3>Documents produits présents dans le dossier Solutions:</h3>
 
             <button class="menu-button" onclick="togglePages('MMTC')">MMTC</button>
             <button class="menu-button" onclick="togglePages('IX')">IX</button>
@@ -37,7 +37,7 @@
             <div id="page1" class="page">
 
                 <header>
-                    <img src="haut page de garde2.png" alt="Description de l'image" width="750">
+                    <img id = "bandeau_DD_Eurevia" src="/Image Presentation/DD Eurevia PdG.png" alt="Description de l'image" >
                     
                 </header>
         
@@ -145,11 +145,13 @@
                             <img src="page de garde photo.png"  id = "pic-entreprise" alt="photo entreprise" width="700">
 
                             <footer class="print-footer">
-                                <div class="contact-info">
+
+                                <img src="/Image Presentation/Pied de page.png"  id = "footer-pic" alt="photo footer" width=100%>
+                                <!-- <div class="contact-info">
                                     <p>BDR THERMEA France SAS - 57 rue de la Gare - F-67580 Mertzwiller - Tél. +33 3 88 73 75 00 - S.A.S au capital de 229 288 696 € - RCS Strasbourg 833 457 211</p>
                              
                                     <p>&copy; 2024 BDR THERMEA France SAS. Tous droits réservés.</p>
-                                   </div>
+                                   </div> -->
                             </footer>
                        
                     </div> 
@@ -194,13 +196,14 @@
                             <li>Conditions générales de vente</li>
                         </ul>
                 </section>
+         
             </div>
 
             <div id="page3" class="page">
 
 
                 <!-- Image placée en haut à gauche -->
-                <img src="Calculatrice.png" alt="Calculatrice" class="top-left-image" width="300">
+                <img src="Calculatrice.png" alt="Calculatrice" class="top-right-image" width="150">
             
                 <h1>Etat des lieux / Données de votre Projet</h1>
                 <br>
@@ -216,7 +219,7 @@
                 <textarea id="commentaire" name="commentaire" placeholder="Tapez votre texte ici..."></textarea>
             
             
-                <p class="note">Ces valeurs et résultats sont donnés à titre indicatif ; la responsabilité de De Dietrich ne peut en aucun cas être engagée.</p>
+                <p class="note"><i>Ces valeurs et résultats sont donnés à titre indicatif ; la responsabilité de De Dietrich ne peut en aucun cas être engagée.</i></p>
             
             </div>
 
@@ -228,7 +231,7 @@
                 <img src="Notre_solution.png" alt="Notre solution" class="top-left-image" width="200">
                 <br>
             
-                <h1>Notre solution adapté à votre besoin</h1>      
+                <h2>Notre solution adapté à votre besoin</h2>      
                   <br>
         
         
@@ -247,7 +250,7 @@
                 <br>
                 <br>        
         
-                <label for="selection1"><h3>Synoptique de fonctionnement :</h3></label>
+                <label for="selection1"><h3><u>Synoptique de fonctionnement :</u></h3></label>
           
                 <select class="menu-selection" id="selection1" name="selection1">
                     <option value="">-- Sélectionnez une option --</option>
@@ -262,33 +265,33 @@
             
                 <!-- Paragraphes à afficher en fonction de la sélection -->
                 <div id="page1-ecs-mmtc" class="content page1">
-                    <p>La production d’ecs est assurée par une pompe à chaleur monobloc R32 via un régulateur Diemacontrol qui gère la T°C de consigne du préparateur ecs. 
-                        Le bouclage ecs est indépendamment géré par un réchauffeur électrique.
-                        Le ballon tampon installé sur le retour est prévu pour garantir un volume minimum dans l’installation qui doit être supérieure à 5 L/KW et ainsi éviter les courts cycle et assurer une réserve d’énergie lors des dégivrages.
-                        Si la température du préparateur ecs devra être supérieure à 60°C, la résistance électrique prendra la relève et fera le complément.
+                    <p>La production d’ecs est assurée par une pompe à chaleur monobloc R32 via un régulateur Diemacontrol qui gère la T°C de consigne du préparateur ecs. </p>
+                    <p>Le bouclage ecs est indépendamment géré par un réchauffeur électrique.</p>
+                    <p> Le ballon tampon installé sur le retour est prévu pour garantir un volume minimum dans l’installation qui doit être supérieure à 5 L/KW et ainsi éviter les courts cycle et assurer une réserve d’énergie lors des dégivrages.</p> 
+                    <p> Si la température du préparateur ecs devra être supérieure à 60°C, la résistance électrique prendra la relève et fera le complément.</p>
                         
                         
                     </p>
                 </div>
 
                 <div id="page1-ecs-chauffage-mmtc" class="content page1">
-                    <p>
-                        ∙La production chauffage est assurée par pompe à chaleur monobloc R32 grâce au régulateur Diemacontrol qui gère la T°consigne suivant pente de chauffe adaptée optimisée pour radiateurs chaleur douce. 
-                        Si la PAC ne peut suffire pour garantir le confort, l’appoint électrique (1 ou 2 étages) embarqué dans le ballon tampon est appelé pour faire le complément d’énergie si nécessaire. 
-                        
-                        ∙La production d’ECS est assurée par ces mêmes pompes à chaleur monobloc R32 via le régulateur Diemacontrol qui gère la T°C de consigne du préparateur ECS. 
-                        Le bouclage sanitaire est indépendamment géré par un réchauffeur électrique.
-                        Pilotée par le régulateur Diemacontrol, la résistance électrique embarquée dans le préparateur assure le complément fin de charge sanitaire.
+                    
+                    <p>La production chauffage est assurée par pompe à chaleur monobloc R32 grâce au régulateur Diemacontrol qui gère la T°consigne suivant pente de chauffe adaptée optimisée pour radiateurs chaleur douce. </p>
+                    <p>Si la PAC ne peut suffire pour garantir le confort, l’appoint électrique (1 ou 2 étages) embarqué dans le ballon tampon est appelé pour faire le complément d’énergie si nécessaire. </p>
+                                       
+                    <p>La production d’ECS est assurée par ces mêmes pompes à chaleur monobloc R32 via le régulateur Diemacontrol qui gère la T°C de consigne du préparateur ECS. </p>
+                    <p> Le bouclage sanitaire est indépendamment géré par un réchauffeur électrique.</p>
+                    <p> Pilotée par le régulateur Diemacontrol, la résistance électrique embarquée dans le préparateur assure le complément fin de charge sanitaire.</p>
                         
 
-                    </p>
+                    
                 </div>
                 <div id="page1-chauffageMMTC-ecsIX" class="content page1">
-                    <p>∙La production chauffage est assurée par pompe à chaleur monobloc R32 grâce au régulateur Diemacontrol qui gère la T°consigne suivant pente de chauffe adaptée optimisée pour PCBT. 
-                        Si la PAC ne peut suffire pour garantir le confort, la chaudière IX est appelée pour faire le complément d’énergie via un contact sec. 
-                        La priorité au fonctionnement PAC permet de réduire considérablement l’empreinte carbone de l’installation. 
-                        ∙La production sanitaire est assurée quant à elle par la chaudière en direct qui permet une production semi-accumulée. La chaudière assure également le complément d’énergie nécessaire pour vaincre les déperditions du bouclage sanitaire si présent. 
-                        </p>
+                    <p>La production chauffage est assurée par pompe à chaleur monobloc R32 grâce au régulateur Diemacontrol qui gère la T°consigne suivant pente de chauffe adaptée optimisée pour PCBT. </p>
+                     <p> Si la PAC ne peut suffire pour garantir le confort, la chaudière IX est appelée pour faire le complément d’énergie via un contact sec. </p>
+                     <p> La priorité au fonctionnement PAC permet de réduire considérablement l’empreinte carbone de l’installation. </p> 
+                     <p>La production sanitaire est assurée quant à elle par la chaudière en direct qui permet une production semi-accumulée. La chaudière assure également le complément d’énergie nécessaire pour vaincre les déperditions du bouclage sanitaire si présent. </p>
+                        
                 </div>
               
             
@@ -298,8 +301,8 @@
             <!-- Solutions Pages -->
 
              <!-- Solutions Pages -->
-            <div id="solution-1" class="page page-group">
-                <p>Schéma de principe 1</p>           
+            <div id="solution-1" class="page ">
+                <h3>Schéma de principe 1</h3>          
                 <select id="imageSelector2" onchange="displayImage('imageSelector2', 'imageDisplay2')">
                     <option value="" disabled selected>Sélectionnez un schéma</option>
                     <option value="schema1.png">1 MMTC chauffage + ECS</option>
@@ -312,9 +315,9 @@
                 </div>
             </div>
 
-            <div id="solution-2" class="page page-group">
-                <p>Schéma de principe 2</p>
-                <select id="imageSelector3" onchange="displayImage('imageSelector3', 'imageDisplay3')">
+            <div id="solution-2" class="page" >
+                <h3>Schéma de principe 2</h3>  
+                    <select id="imageSelector3" onchange="displayImage('imageSelector3', 'imageDisplay3')">
                     <option value="" disabled selected>Sélectionnez un schéma</option>
                     <option value="schema1.png">1 MMTC chauffage + ECS</option>
                     <option value="schema2.png">2 MMTC chauffage + ECS</option>
@@ -327,8 +330,8 @@
             </div>
 
 
-            <div id="solution-3" class="page-group">
-                <p>Schéma de principe 3</p>
+            <div id="solution-3" class="page ">
+                <h3>Schéma de principe 3</h3>  
                 <select id="imageSelector4" onchange="displayImage('imageSelector4', 'imageDisplay4')">
                     <option value="" disabled selected>Sélectionnez un schéma</option>
                     <option value="schema1.png">1 MMTC chauffage + ECS</option>
@@ -344,18 +347,56 @@
             </div>
 
             <!-- Groups Pages -->
-            <div id="MMTC" class="page page-group">
+            <div id="MMTC" class="page-group">
+                <div class= "page"> 
                  <!-- Documentations MMTC -->
-                 <img src="Dimension_MMTCpng.png" alt="caractéristique IX"  width=700px>
+                 <img src="/Doc Produits/MMTC/Requis.png" alt="REquis MMTC"  width=100%>
+                 </div>
+                <div class= "page"> 
+                <!-- Documentations MMTC -->
+                <img src="/Doc Produits/MMTC/Dimensions MMTC.png" alt="Dimension MMTC"  width=100%>
+                </div>
+                <div class= "page"> 
+                <!-- Documentations MMTC -->
+                <img src="/Doc Produits/MMTC/Caract tech MMTC.png" alt="caractéristique tech MMTC"  width=100%>
+                </div>
+                <div class= "page"> 
+                <!-- Documentations MMTC -->
+                <img src="/Doc Produits/MMTC/Espacement MMTC.png" alt="Espacement MMTC"  width=100%>
+                </div>
+                <div class= "page"> 
+                    <!-- Documentations MMTC -->
+                    <img src="/Doc Produits/MMTC/Debit pompe MMTC.png" alt="Debit MMTC"  width=100%>
+                </div>
+                <div class= "page"> 
+                    <!-- Documentations MMTC -->
+                    <img src="/Doc Produits/MMTC/Electrique acoustique MMTC.png" alt="Electricite acoustique"  width=100%>
+                </div>
+                
+                     
                  
              
             </div>
             <div id="IX" class="page-group">
-                <img src="Caract_tech_IX.png" alt="caractéristique IX"  width=700px>
+                <div class= "page"> 
+                    <!-- Documentations MMTC -->
+                  <img src="Caract_tech_IX.png" alt="caractéristique IX"  width=100%>
+                    </div>
+                
             </div>
 
             <div id="IX-M" class="page-group">
-                <img src="Caract_tech_IX-M.png" alt="caractéristique IX"  width=700px>
+                <div class= "page"> 
+                    <!-- Documentations MMTC -->
+                  <img src="Caract_tech_IX-M.png" alt="caractéristique IX-M"  width=100%>
+                    </div>
+                
+            </div>
+
+            <div id="Annexe" class="page">
+                <h2 id="title_annexe">ANNEXES</h2>             
+           </div>
+                
             </div>
 
         </div>
