@@ -6,13 +6,36 @@
     <!-- <title>Application avec Page de Garde et Sélection d'Images</title> -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <style>
+
+
+
         body {
             font-family: Arial, sans-serif;
             padding: 5x;
             background-color: white;
+            display: flex;
         }
-        
 
+        .menu-button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            background-color: #ddd;
+            border: none;
+            cursor: pointer;
+            text-align: left;
+}
+
+        .menu-button.active {
+            background-color: #00bfff;
+            color: white;
+}
+/*         
+        .container {
+    display: flex;
+    height: 100vh; */
+    
 
         .grand-caractere {
                     font-size: 24px; /* Taille de police */
@@ -138,6 +161,7 @@
             border: 1px solid #ccc; 
             box-sizing: border-box;
             page-break-after: always; /* Séparation pour impression */
+            
         }
 
         .hidden {
@@ -260,28 +284,65 @@
         }
 
         /* Impression */
+
+    
         @media print {
+
+            .menu {
+                    display: none;
+                
+            }
+                .container {
+                    display: block;
+            }       
             .toggle-button {
                 display: none;
             }
             .hidden {
                 display: block !important;
             }
+
+              /* Cache la date et le nom du fichier */
+              /* footer {
+                display: none; /
+            } */
+
+            /* Cache d'autres éléments si nécessaire */
+            .no-print {
+                display: none; /* Classe pour les éléments à cacher */
+            }
         }
     </style>
 </head>
 
 <body>
+    <!-- <button id="save-pdf" class="no-print">Enregistrer en PDF</button> -->
+
+    
+        <div class="menu">
+            <label for="solutions-count">Nombre de solutions :</label>
+            <select id="solutions-count" onchange="displaySolutions()">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            </select>
+
+            <button class="menu-button" onclick="togglePages('MMTC')">MMTC</button>
+            <button class="menu-button" onclick="togglePages('IX')">IX</button>
+            <button class="menu-button" onclick="togglePages('IX-M')">IX-M</button>
+        </div>
+    <div class = "dossier">
 
     <!-- Page de garde -->
-    <div id="pageGarde" class="page">
+    <div id="page1" class="page">
         <header>
             <img src="haut page de garde2.png" alt="Description de l'image">
             
         </header>
         <div class="container">     
         
-        <body>
+        
         
             
             <h1><input type="text" class="grand-caractere" placeholder="Titre chantier..."></h1>
@@ -451,8 +512,8 @@
         </footer>
     </div>
 
-    <!-- Page 0 : Zones de saisie (première page fonctionnelle) -->
-    <div id="page0" class="page">
+    <!-- Page 2: Zones de saisie (première page fonctionnelle) -->
+    <div id="page2" class="page">
         
        
    
@@ -492,7 +553,7 @@
 </section>
     </div>
 
-    <div id="page2" class="page">
+    <div id="page3" class="page">
 
 
     <!-- Image placée en haut à gauche -->
@@ -516,7 +577,7 @@
 
     </div>
 
-    <div id="page3" class="page">
+    <div id="page4" class="page">
 
 
         <!-- Image placée en haut à gauche -->
@@ -604,13 +665,13 @@
     
 
     <!-- Page 1 : Sélection d'images -->
-    <div id="page4" class="page">
-        <button class="toggle-button" onclick="togglePage('page1')">Cacher cette page</button>
-        <h1>Page 1 : Choisissez une image</h1>
+    <div id="page5" class="page">
+        <button  class="no-print toggle-button"  onclick="togglePage('page5')">Cacher cette page</button>
+        <h1>Schéma de principe de la solution</h1>
         <select id="imageSelector1" onchange="displayImage('imageSelector1', 'imageDisplay1')">
-            <option value="" disabled selected>Schéma de prinicpe de la solution</option>
-            <option value="1 MMTC chauffage .png">Image 1</option>
-            <option value="schema2.png">Image 2</option>
+            <option value="" disabled selected>Selectionner le schéma</option>
+            <option value="schema1.png">1 MMTC chauffage + ECS</option>
+            <option value="schema2.png">2 MMTC chauffage + ECS</option>
             <option value="image3.jpg">Image 3</option>
         </select>
         <div id="imageDisplay1">
@@ -618,7 +679,7 @@
         </div>
     </div>
 
-    <div id="page5" class="page">
+    <div id="page6" class="page">
 
 
         <!-- Image placée en haut à gauche -->
@@ -729,13 +790,14 @@
     
 
     <!-- Page 2 : Sélection d'images -->
-    <div id="page6" class="page">
-        <button class="toggle-button" onclick="togglePage('page2')">Cacher cette page</button>
-        <h1>Schéma de principe de la solution</h1>
+    <div id="page7" class="page">
+
+        <button class="toggle-button" class = "no-print" onclick="togglePage('page7')">Cacher cette page</button>
+        <h1>Schéma de principe de la solution 2</h1>
         <select id="imageSelector2" onchange="displayImage('imageSelector2', 'imageDisplay2')">
-            <option value="" disabled selected>Sélectionnez une image</option>
-            <option value="schema1.png">Image 1</option>
-            <option value="schema2.png">Image 2</option>
+            <option value="" disabled selected>Sélectionnez un schéma</option>
+            <option value="schema1.png">1 MMTC chauffage + ECS</option>
+            <option value="schema2.png">2 MMTC chauffage + ECS</option>
             <option value="image3.jpg">Image 3</option>
         </select>
         <div id="imageDisplay2">
@@ -745,6 +807,12 @@
 
 
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+
+</div>
+
     <script>
 
 <!-- Flatpickr JS -->
@@ -842,9 +910,30 @@
                     document.getElementById(selectedValue).style.display = 'block';
                 }
             });
+                document.getElementById('save-pdf').addEventListener('click', async function() {
+                const { jsPDF } = window.jspdf;
+                const pdf = new jsPDF();
+                const pages = document.querySelectorAll('.page');
 
+                for (let index = 0; index < pages.length; index++) {
+                    const canvas = await html2canvas(pages[index]);
+                    const imgData = canvas.toDataURL('image/png');
+                    const imgWidth = 190; // Largeur de l'image dans le PDF
+                    const imgHeight = (canvas.height * imgWidth) / canvas.width;
+
+                    if (index > 0) {
+                        pdf.addPage(); // Ajoute une nouvelle page si ce n'est pas la première
+                    }
+
+                    pdf.addImage(imgData, 'PNG', 10, 10, imgWidth, imgHeight);
+                }
+
+                pdf.save('document.pdf'); // Sauvegarde le PDF après avoir ajouté toutes les pages
+            });
+                
+                        
+                
         
-    
     </script>
 
 </body>

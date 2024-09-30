@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu avec Solutions et Groupes de Pages A4</title>
+    <link rel="stylesheet" href="style11.css">
+</head>
+<body>
+    <div class="container">
+        <div class="menu">
+            <label for="solutions-count">Nombre de solutions :</label>
+            <select id="solutions-count" onchange="displaySolutions()">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            </select>
+
+            <button class="menu-button" onclick="togglePages('MMTC')">MMTC</button>
+            <button class="menu-button" onclick="togglePages('IX')">IX</button>
+            <button class="menu-button" onclick="togglePages('IX-M')">IX-M</button>
+        </div>
+        <div class="content">
+            <!-- Solutions Pages -->
+            <div id="solution-1" class="page-group">Page Solution 1</div>
+            <div id="solution-2" class="page-group">Page Solution 2</div>
+            <div id="solution-3" class="page-group">Page Solution 3</div>
+
+            <!-- Groups Pages -->
+            <div id="MMTC" class="page-group">Contenu du groupe MMTC</div>
+            <div id="IX" class="page-group">Contenu du groupe IX</div>
+            <div id="IX-M" class="page-group">Contenu du groupe IX-M</div>
+        </div>
+    </div>
+
+    <script src="script11.js"></script>
+</body>
+</html>
